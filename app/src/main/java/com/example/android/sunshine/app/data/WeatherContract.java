@@ -42,14 +42,14 @@ public class WeatherContract {
         public static final String TABLE_NAME = "location";
 
 
+        // Location String
+        public static final String COLUMN_LOCATION_SETTING="location_setting";
+        // Human readable Location String
+        public static final String COLUMN_CITY_NAME="city_name";
 
-        public static final String COLUMN_LOC_SETTING="location_setting";
+        public static final String COLUMN_COORD_LONG="coord_long";
 
-        public static final String COLUMN_LOC_NAME="city_name";
-
-        public static final String COLUMN_LOC_long="coord_long";
-
-        public static final String COLUMN_LOC_lat="coord_lat";
+        public static final String COLUMN_COORD_LAT="coord_lat";
     }
 
     /* Inner class that defines the table contents of the weather table */

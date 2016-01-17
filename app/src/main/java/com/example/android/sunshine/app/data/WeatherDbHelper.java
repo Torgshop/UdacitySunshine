@@ -27,6 +27,8 @@ import com.example.android.sunshine.app.data.WeatherContract.WeatherEntry;
  */
 public class WeatherDbHelper extends SQLiteOpenHelper {
 
+    private final String LOG_TAG=WeatherDbHelper.class.getName();
+
     // If you change the database schema, you must increment the database version.
     private static final int DATABASE_VERSION = 2;
 
@@ -38,6 +40,16 @@ public class WeatherDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+        final String SQL_CREATE_LOCATION_TABHLE= "CREATE TABLE " + LocationEntry.TABLE_NAME+" (" +
+                LocationEntry._ID + " INTEGER PRIMARY KEY," +
+                LocationEntry.COLUMN_LOCATION_SETTING+ " TEXT UNIQUE NOT NULL,"+
+                LocationEntry.COLUMN_CITY_NAME+ " TEXT NOT NULL,"+
+                LocationEntry.COLUMN_COORD_LONG+ " REAL NOT NULL,"+
+                LocationEntry.COLUMN_COORD_LAT+ " REAL NOT NULL);";
+        sqLiteDatabase.execSQL(SQL_CREATE_LOCATION_TABHLE);
+
+
         final String SQL_CREATE_WEATHER_TABLE = "CREATE TABLE " + WeatherEntry.TABLE_NAME + " (" +
                 // Why AutoIncrement here, and not above?
                 // Unique keys will be auto-generated in either case.  But for weather
